@@ -12,33 +12,11 @@ from utils import (
     get_loaders,
     SNR,
 )
-
 import copy
 
 
 
-LOSS           = []
-AVGSNR         = []
-
-
-
-LEARNING_RATE = 1e-4
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-BATCH_SIZE    = 16
-NUM_EPOCHS    = 10
-NUM_WORKERS   = 2
-PIN_MEMORY    = True
-LOAD_MODEL    = False
-
-
-TRAIN_IMG_DIR    = 'C:/Users/hashe/Desktop/KFUPM/212/EE 562/DSP1_TermProject/Training_Patches_Targets_AVO'
-TRAIN_TARGET_DIR = 'C:/Users/hashe/Desktop/KFUPM/212/EE 562/DSP1_TermProject/Training_Patches_Targets_AVO'
-VAL_IMG_DIR      = "DataPatches/AVOBigValidation/"
-VAL_TARGET_DIR   = "DataPatches/AVOBigValidation/"
-
-
-
-
 def train_fn(loader, model, optimizer, loss_fn, scaler):
     loop = tqdm(loader)
     adderloss = []
@@ -70,7 +48,23 @@ def train_fn(loader, model, optimizer, loss_fn, scaler):
 
     return sum(adderloss)/len(adderloss)
 
-def main(): 
+def Train(LEARNING_RATE, BATCH_SIZE, NUM_EPOCHS):
+    
+   
+
+
+    LOSS = []
+    AVGSNR = []
+    NUM_WORKERS = 2
+    PIN_MEMORY = True
+    LOAD_MODEL = False
+
+    TRAIN_IMG_DIR = 'DataPatches/Training_Patches_Targets_AVO'
+    TRAIN_TARGET_DIR = 'DataPatches/Training_Patches_Targets_AVO'
+    
+
+    
+    
     train_transform = A.Compose(
         [
             A.HorizontalFlip(p=0.5),
@@ -93,11 +87,11 @@ def main():
     optimizer  = optim.Adam(model.parameters(), lr = LEARNING_RATE)
     # scheduler  = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
-    train_loader, val_loader = get_loaders(
+    train_loader, _ = get_loaders(
         TRAIN_IMG_DIR,
         TRAIN_TARGET_DIR,
-        VAL_IMG_DIR,
-        VAL_TARGET_DIR,
+        None,
+        None,
         BATCH_SIZE,
         train_transform,
         None,
@@ -125,9 +119,9 @@ def main():
 
         # save model
         if 1: # temp_snr > best_snr:
-            best_model_wts = copy.deepcopy(model.state_dict())
-            optim_cor = copy.deepcopy(optimizer.state_dict())
-            best_snr = temp_snr
+            # best_model_wts = copy.deepcopy(model.state_dict())
+            # optim_cor = copy.deepcopy(optimizer.state_dict())
+            # best_snr = temp_snr
 
             checkpoint = {
                 "state_dict": model.state_dict(),
@@ -136,7 +130,7 @@ def main():
             save_checkpoint(checkpoint)
 
 
-        AVGSNR.append(temp_snr)
+        # AVGSNR.append(temp_snr)
 
 
 
