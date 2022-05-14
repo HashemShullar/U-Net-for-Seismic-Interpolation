@@ -68,7 +68,7 @@ python main.py --mode train
 | Option | Purpose |
 | ------ | ------ |
 | patch_name | Specify patch name. Only .txt files can be used |
-| lr | Learning rate used by the optimizor |
+| lr | Learning rate used by the optimizer |
 | batch_size | Numbe of images in each iteration |
 | epochs | Number of training epochs |
 | mode | 'train', 'test' or 'interpolate'. 'interpolate' is for testing on a single patch |
