@@ -8,10 +8,6 @@ This repo contains all codes developed while working on the term project for EE4
 </p>
 
 
-<p align="center">
-<img src="Figures/Example.png">
-</p>
-
 
 ## Installation\Set up
 
@@ -45,5 +41,47 @@ conda activate  SeismicInterpolation
 ```
 pip install -r requirements.txt
 ```
+
+
+## Running the Code
+
+You can download a pretrained model in adittion to the training and testing datasets from [GoogleDrive](https://github.com/HashemShullar/U-Net-for-Seismic-Interpolation). After downloading the model you can either test it on a single patch or you can test the model on the testing dataset.
+
+#### Make sure the patch you want to test is in the repository root directory (You can use the patch provided with the repo). Open a command prompt in the root directory and run [main.py](https://github.com/HashemShullar/U-Net-for-Seismic-Interpolation/blob/main/main.py) as follows:
+
+
+ ```
+python main.py --mode interpolate
+```
+
+#### You can also train your model from scratch.
+
+
+ ```
+python main.py --mode train
+```
+
+
+## Options table:
+
+
+| Option | Purpose |
+| ------ | ------ |
+| patch_name | Specify patch name. Only .txt files can be used |
+| lr | Learning rate used by the optimizor |
+| batch_size | Numbe of images in each iteration |
+| epochs | Number of training epochs |
+| mode | 'train', 'test' or 'interpolate'. 'interpolate' is for testing on a single patch |
+| corruption_precentage | % of traces to be removed from the image (For mode (interpolate)) |
+
+
+## Results
+
+
+<p align="center">
+<img src="Figures/Example.png">
+</p>
+
+
 
 
