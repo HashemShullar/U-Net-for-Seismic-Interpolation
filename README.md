@@ -7,6 +7,12 @@ This repo contains all codes developed while working on the term project for EE4
 <img src="Figures/DilatedUNet.jpg">
 </p>
 
+
+<p align="center">
+<img src="Figures/Example.png">
+</p>
+
+
 ## Installation\Set up
 
 
