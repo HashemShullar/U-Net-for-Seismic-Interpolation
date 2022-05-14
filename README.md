@@ -36,7 +36,7 @@ conda create --name SeismicInterpolation python=3.7
 conda activate  SeismicInterpolation
 ```
 
-### 4- Run the [requirements.txt](https://github.com/HashemShullar/U-Net-for-Seismic-Interpolation) file to install the required packeges:
+### 4- Run the [requirements.txt](https://github.com/HashemShullar/U-Net-for-Seismic-Interpolation/blob/main/requirements.txt) file to install the required packeges:
 
 ```
 pip install -r requirements.txt
@@ -45,7 +45,7 @@ pip install -r requirements.txt
 
 ## Running the Code
 
-You can download a pretrained model in adittion to the training and testing datasets from [OneDrive](https://kfupmedusa-my.sharepoint.com/:f:/g/personal/g201664780_kfupm_edu_sa/EjLKroxemL1BsGwI8Vx03bMBudWFWLd2gYZDx47VTGbs6Q?e=UPpWsH). After downloading the model you can either test it on a single patch or you can test the model on the testing dataset.
+You can download a pretrained model in adittion to the training and testing datasets from [OneDrive](https://kfupmedusa-my.sharepoint.com/:f:/g/personal/g201664780_kfupm_edu_sa/EjLKroxemL1BsGwI8Vx03bMBudWFWLd2gYZDx47VTGbs6Q?e=UPpWsH). After downloading the model you can either test it on a single patch or you can test the model on the testing dataset. Make sure the model and the Data folder are both in the repository root directory.
 
 #### Make sure the patch you want to test is in the repository root directory (You can use the patch provided with the repo). Open a command prompt in the root directory and run [main.py](https://github.com/HashemShullar/U-Net-for-Seismic-Interpolation/blob/main/main.py) as follows:
 
