@@ -59,8 +59,8 @@ def Train(LEARNING_RATE, BATCH_SIZE, NUM_EPOCHS):
     PIN_MEMORY = True
     LOAD_MODEL = False
 
-    TRAIN_IMG_DIR = 'DataPatches/Training_Patches_Targets_AVO'
-    TRAIN_TARGET_DIR = 'DataPatches/Training_Patches_Targets_AVO'
+    TRAIN_IMG_DIR = 'Data/Training'
+    TRAIN_TARGET_DIR = 'Data/Training'
     
 
     
@@ -79,7 +79,7 @@ def Train(LEARNING_RATE, BATCH_SIZE, NUM_EPOCHS):
     model    = UNET(in_channels=1, out_channels=1).to(DEVICE)
 
     if LOAD_MODEL:
-        load_checkpoint(torch.load("60Epochs_reflect_dialation.pth.tar"), model)
+        load_checkpoint(torch.load("NewModel.pth.tar"), model)
 
     loss_fn = nn.L1Loss(reduction='mean')
 

@@ -17,14 +17,14 @@ import copy
 
 def Test(BATCH_SIZE):
 
-    VAL_IMG_DIR = "DataPatches/AVOBigValidation/"
-    VAL_TARGET_DIR = "DataPatches/AVOBigValidation/"
+    VAL_IMG_DIR = "Data/Testing/"
+    VAL_TARGET_DIR = "Data/Testing/"
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
     model = UNET(in_channels=1, out_channels=1).to(DEVICE)
-    load_checkpoint(torch.load("RepoTest.pth.tar"), model)
+    load_checkpoint(torch.load("Dilated_UNet.pth.tar"), model)
 
 
 
@@ -48,7 +48,7 @@ def Single_Image(Image_Name, factor):
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     model = UNET(in_channels=1, out_channels=1).to(DEVICE)
-    load_checkpoint(torch.load("70Epochs_reflect_dialation.pth.tar"), model)
+    load_checkpoint(torch.load("Dilated_UNet.pth.tar"), model)
 
 
     Target = np.loadtxt(Image_Name, delimiter=',')

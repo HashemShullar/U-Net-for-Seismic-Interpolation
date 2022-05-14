@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 
 
-def save_checkpoint(state, filename="70Epochs_reflect_dialation.pth.tar"):
+def save_checkpoint(state, filename="NewModel.pth.tar"):
     print("---> Saving checkpoint")
     torch.save(state, filename)
 
