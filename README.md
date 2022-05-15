@@ -79,7 +79,7 @@ python main.py --mode train
 
 
 <p align="center">
-<img src="Figures/Example.png">
+<img src="Figures/real.jpg">
 </p>
 
 
